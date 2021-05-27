@@ -34,4 +34,4 @@ Route::delete('/spd/{id}', 'App\Http\Controllers\SpdController@delete');
 Route::get('permintaanpembiayaan' , 'App\Http\Controllers\PermintaanPembiayaanController@index');
 Route::post('permintaanpembiayaan' , 'App\Http\Controllers\PermintaanPembiayaanController@create');
 Route::put('/permintaanpembiayaan/{id}' , 'App\Http\Controllers\PermintaanPembiayaanController@update');
-Route::delete('/permintaanpembiayaan/{PermintaanPembiayaan:id}' , [PermintaanPembiayaan::class , 'delete']);
+Route::delete('/permintaanpembiayaan/{id}' , 'App\Http\Controllers\PermintaanPembiayaanController@delete');
