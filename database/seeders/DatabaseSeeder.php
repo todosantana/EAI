@@ -16,8 +16,22 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         \DB::table('reports')->insert([
             'id' => 123,
-            'reportdate' => '2021-05-05',
-            'profitloss' => '5000',
+            'jenis_laporan' => 'Laporan Bulanan',
+            'reportdate' => '2021-05-31',
+            'saldoawal' => 100000,
+            'tunai' => 50000,
+            'piutangusaha' => 20000,
+            'peralatan' => 15000,
+            'persediaan' => 15000,
+            'totalaset' => 100000,
+            'hutangusaha' => 10000,
+            'total_liabilitas' => 10000,
+            'modal' => 0,
+            'pendapatan' => 35000,
+            'pengeluaran' => 15000,
+            'totalprofitloss' => 20000,
+            'saldo_akhir' => 110000,
+            'penanggung_jawab' => 'Todoan',
             ]);
         \DB::table('spds')->insert([
             'id' => 123,

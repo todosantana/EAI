@@ -75,19 +75,22 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(request $request, $id)
+
+    public function update($id, Request $request)
     {
-        //
-        $id = $request -> id;
-        $reportdate = $request -> reportdate;
-        $profitloss = $request -> profitloss;
+        $spd = spd::findOrFail($id);
+        $this->validate($request,[
+            'nama_transaksi'=> 'required',
+            'jenis_pembayaran'=> 'required',
+            'tgl_pembayaran'=> 'required',
+            'jml_pembayaran'=> 'required',
+            'nomer_faktur'=> 'required'
+        ]);
+        $input = $request->all();
 
-        $report = Report::find($id);
-        $report->reportdate = $reportdate;
-        $report->profitloss = $profitloss;
-        $report->save();
-
-        return "Data Berhasil Masuk";
+        $spd->fill($input)->save();
+        return "Data berhasil di update";
+        
     }
 
     /**

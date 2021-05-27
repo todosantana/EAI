@@ -77,25 +77,22 @@ class SpdController extends Controller
      * @param  \App\Models\spd  $spd
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, spd $spd)
+    public function update($id, Request $request)
     {
-        $id = $request->$id;
-        $nama_transaksi = $request->nama_transaksi;
-        $jenis_pembayaran = $request->jenis_pembayaran;
-        $tgl_pembayaran = $request->tgl_pembayaran;
-        $jml_pembayaran = $request->jml_pembayaran;
-        $nomer_faktur = $request->nomer_faktur;
+        $spd = spd::findOrFail($id);
+        $this->validate($request,[
+            'nama_transaksi'=> 'required',
+            'jenis_pembayaran'=> 'required',
+            'tgl_pembayaran'=> 'required',
+            'jml_pembayaran'=> 'required',
+            'nomer_faktur'=> 'required'
+        ]);
 
-        $spd = spd::find($id);
-        $spd->nama_transaksi = $nama_transaksi;
-        $spd->jenis_pembayaran = $jenis_pembayaran;
-        $spd->tgl_pembayaran = $tgl_pembayaran;
-        $spd->jml_pembayaran = $jml_pembayaran;
-        $spd->nomer_faktur = $nomer_faktur;
-        $spd->save();
+        $input = $request->all();
 
+        $spd->fill($input)->save();
         return "Data berhasil di update";
-
+        
     }
 
     /**
