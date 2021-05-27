@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\spd;
 use Illuminate\Http\Request;
 
 class SpdController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
