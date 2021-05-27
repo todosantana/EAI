@@ -18,7 +18,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//REPORTS
 Route::get('reports', 'App\Http\Controllers\ReportController@index');
 Route::post('reports', 'App\Http\Controllers\ReportController@create');
 Route::put('/reports/{id}', 'App\Http\Controllers\ReportController@update');
 Route::delete('/reports/{id}', 'App\Http\Controllers\ReportController@delete');
+
+//SIKLUS PENDAPATAN
+Route::get('spd', 'App\Http\Controllers\SpdController@index');
+Route::post('spd', 'App\Http\Controllers\SpdController@create');
+Route::put('/spd/{id}', 'App\Http\Controllers\SpdController@update');
+Route::delete('/spd/{id}', 'App\Http\Controllers\SpdController@delete');
+
+//PERMINTAAN PEMBIAYAAN
+Route::get('permintaanpembiayaan' , [PermintaanPembiayaanController::class , 'index']);
+Route::post('permintaanpembiayaan' , [PermintaanPembiayaanController:: class , 'create']);
+Route::put('/permintaanpembiayaan/{PermintaanPembiayaan:id}' , [PermintaanPembiayaanController::class , 'update']);
+Route::delete('/permintaanpembiayaan/{PermintaanPembiayaan:id}' , [PermintaanPembiayaanController::class , 'delete']);
