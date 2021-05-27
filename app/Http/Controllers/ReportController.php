@@ -30,7 +30,7 @@ class ReportController extends Controller
         $report = new Report;
         $report->jenis_laporan = $request->jenis_laporan;
         $report->reportdate = $request->reportdate;
-        $report->saldoawal = $request->saldo_awal;
+        $report->saldo_awal = $request->saldo_awal;
         $report->tunai = $request->tunai;
         $report->piutang_usaha = $request->piutang_usaha;
         $report->peralatan = $request->peralatan;
@@ -111,7 +111,7 @@ class ReportController extends Controller
         $report = Report::find($id);
         $report->jenis_laporan = $jenis_laporan;
         $report->reportdate = $reportdate;
-        $report->saldoawal = $saldoawal;
+        $report->saldo_awal = $saldo_awal;
         $report->tunai = $tunai;
         $report->piutang_usaha = $piutang_usaha;
         $report->peralatan = $peralatan;
@@ -123,12 +123,11 @@ class ReportController extends Controller
         $report->pengeluaran = $pengeluaran;
         $report->total_profitloss = $total_profitloss;
         $report->saldo_akhir = $saldo_akhir;
+        $report->saldo_akhir = $saldo_akhir;
         $report->penanggungjawab = $penanggungjawab;
         $report->save();
 
         return "Data Berhasil Masuk";
-    }
-
     }
 
     /**
