@@ -28,10 +28,23 @@ class ReportController extends Controller
     {
         //
         $report = new Report;
+        $report->jenis_laporan = $request->jenis_laporan;
         $report->reportdate = $request->reportdate;
-        $report->profitloss = $request->profitloss;
+        $report->saldoawal = $request->saldo_awal;
+        $report->tunai = $request->tunai;
+        $report->piutang_usaha = $request->piutang_usaha;
+        $report->peralatan = $request->peralatan;
+        $report->total_aset = $request->total_aset;
+        $report->hutang_usaha = $request->hutang_usaha;
+        $report->total_liabilitas = $request->total_liabilitas;
+        $report->modal = $request->modal;
+        $report->pendapatan = $request->pendapatan;
+        $report->pengeluaran = $request->pengeluaran;
+        $report->total_profitloss = $request->total_profitloss;
+        $report->saldo_akhir = $request->saldo_akhir;
+        $report->penanggungjawab = $request->penanggungjawab;
         $report->save();
-
+        
         return "Data Berhasil Masuk";
     }
 
@@ -75,22 +88,47 @@ class ReportController extends Controller
      * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-
-    public function update($id, Request $request)
+    public function update(request $request, $id)
     {
-        $spd = spd::findOrFail($id);
-        $this->validate($request,[
-            'nama_transaksi'=> 'required',
-            'jenis_pembayaran'=> 'required',
-            'tgl_pembayaran'=> 'required',
-            'jml_pembayaran'=> 'required',
-            'nomer_faktur'=> 'required'
-        ]);
-        $input = $request->all();
+        //
+        $id = $request -> id;
+        $jenis_laporan = $request -> jenis_laporan;
+        $reportdate = $request -> reportdate;
+        $saldoawal = $request -> saldoawal;
+        $tunai = $request -> tunai;
+        $piutang_usaha = $request -> piutang_usaha;
+        $peralatan = $request -> peralatan;
+        $total_aset = $request -> total_aset;
+        $hutang_usaha = $request -> hutang_usaha;
+        $total_liabilitas = $request -> total_liabilitas;
+        $modal = $request -> modal;
+        $pendapatan = $request -> pendapatan;
+        $pengeluaran = $request -> pengeluaran;
+        $total_profitloss = $request -> total_profitloss;
+        $saldo_akhir = $request -> saldo_akhir;
+        $penanggungjawab = $request -> penanggungjawab;
 
-        $spd->fill($input)->save();
-        return "Data berhasil di update";
-        
+        $report = Report::find($id);
+        $report->jenis_laporan = $jenis_laporan;
+        $report->reportdate = $reportdate;
+        $report->saldoawal = $saldoawal;
+        $report->tunai = $tunai;
+        $report->piutang_usaha = $piutang_usaha;
+        $report->peralatan = $peralatan;
+        $report->total_aset = $total_aset;
+        $report->hutang_usaha = $hutang_usaha;
+        $report->total_liabilitas = $total_liabilitas;
+        $report->modal = $modal;
+        $report->pendapatan = $pendapatan;
+        $report->pengeluaran = $pengeluaran;
+        $report->total_profitloss = $total_profitloss;
+        $report->saldo_akhir = $saldo_akhir;
+        $report->penanggungjawab = $penanggungjawab;
+        $report->save();
+
+        return "Data Berhasil Masuk";
+    }
+
     }
 
     /**

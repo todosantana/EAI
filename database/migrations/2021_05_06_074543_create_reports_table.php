@@ -17,20 +17,20 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->string('jenis_laporan');
             $table->date('reportdate');
-            $table->integer('saldoawal');
+            $table->integer('saldo_awal');
             $table->integer('tunai');
-            $table->integer('piutangusaha');
+            $table->integer('piutang_usaha');
             $table->integer('peralatan');
             $table->integer('persediaan');
-            $table->integer('totalaset');
-            $table->integer('hutangusaha');
+            $table->integer('total_aset');
+            $table->integer('hutang_usaha');
             $table->integer('total_liabilitas');
             $table->integer('modal');
             $table->integer('pendapatan');
             $table->integer('pengeluaran');
-            $table->integer('totalprofitloss');
+            $table->integer('total_profitloss');
             $table->integer('saldo_akhir');
-            $table->string('penanggung_jawab');
+            $table->string('penanggungjawab');
             $table->timestamps();
         });
     }
