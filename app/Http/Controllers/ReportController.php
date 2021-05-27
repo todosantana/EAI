@@ -34,6 +34,7 @@ class ReportController extends Controller
         $report->tunai = $request->tunai;
         $report->piutang_usaha = $request->piutang_usaha;
         $report->peralatan = $request->peralatan;
+        $report->persediaan = $request->persediaan;
         $report->total_aset = $request->total_aset;
         $report->hutang_usaha = $request->hutang_usaha;
         $report->total_liabilitas = $request->total_liabilitas;
@@ -94,7 +95,7 @@ class ReportController extends Controller
         $id = $request -> id;
         $jenis_laporan = $request -> jenis_laporan;
         $reportdate = $request -> reportdate;
-        $saldoawal = $request -> saldoawal;
+        $saldo_awal = $request -> saldo_awal;
         $tunai = $request -> tunai;
         $piutang_usaha = $request -> piutang_usaha;
         $peralatan = $request -> peralatan;
