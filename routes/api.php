@@ -35,3 +35,9 @@ Route::get('permintaanpembiayaan' , 'App\Http\Controllers\PermintaanPembiayaanCo
 Route::post('permintaanpembiayaan' , 'App\Http\Controllers\PermintaanPembiayaanController@create');
 Route::put('/permintaanpembiayaan/{id}' , 'App\Http\Controllers\PermintaanPembiayaanController@update');
 Route::delete('/permintaanpembiayaan/{id}' , 'App\Http\Controllers\PermintaanPembiayaanController@delete');
+
+//PERPAJAKAN
+Route::get('perpajakan' , [PerpajakanController::class , 'index']);
+Route::post('perpajakan' , [PerpajakanController:: class , 'create']);
+Route::put('/perpajakan/{perpajakan:id}' , [PerpajakanController::class , 'update']);
+Route::delete('/perpajakan/{perpajakan:id}' , [PerpajakanController::class , 'delete']);
