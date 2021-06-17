@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2021 at 10:32 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Waktu pembuatan: 17 Jun 2021 pada 11.12
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 7.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `biayaoperationals`
+--
+
+CREATE TABLE `biayaoperationals` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kebutuhan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggaldibutuhkan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `penanggungjawab` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `biayaoperationals`
+--
+
+INSERT INTO `biayaoperationals` (`id`, `nama`, `kebutuhan`, `jumlah`, `tanggaldibutuhkan`, `penanggungjawab`, `created_at`, `updated_at`) VALUES
+(1, 'Nopang', 'bayar Air', '1.500.0000', '26.10.2021', 'Avatar', '2021-05-04 08:54:04', '2021-05-04 08:54:04'),
+(3, 'arya', 'bayar karyawan', '2.000.000.000', '5.6.2021', 'Bimo', '2021-05-06 00:46:11', '2021-05-06 08:26:03'),
+(4, 'Avatar', 'bayar Air', '200.000.000', '5.5.2021', 'katara', '2021-05-06 00:47:09', '2021-05-06 00:47:09'),
+(5, 'Zuko', 'Beli bahan bakar', '200.000.000', '5.5.2021', 'Ozai', '2021-05-06 01:38:24', '2021-05-06 01:38:24'),
+(7, 'arya', 'bayar karyawan', '2.000.000.000', '5.6.2021', 'Bimo', '2021-05-06 08:25:39', '2021-05-06 08:25:39');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -40,7 +68,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -50,7 +78,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -65,7 +93,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -77,7 +105,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permintaan_pembiayaan`
+-- Struktur dari tabel `permintaan_pembiayaan`
 --
 
 CREATE TABLE `permintaan_pembiayaan` (
@@ -94,7 +122,7 @@ CREATE TABLE `permintaan_pembiayaan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perpajakans`
+-- Struktur dari tabel `perpajakans`
 --
 
 CREATE TABLE `perpajakans` (
@@ -110,7 +138,7 @@ CREATE TABLE `perpajakans` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reports`
+-- Struktur dari tabel `reports`
 --
 
 CREATE TABLE `reports` (
@@ -138,7 +166,7 @@ CREATE TABLE `reports` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `spds`
+-- Struktur dari tabel `spds`
 --
 
 CREATE TABLE `spds` (
@@ -155,7 +183,7 @@ CREATE TABLE `spds` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -174,97 +202,97 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `permintaan_pembiayaan`
+-- Indeks untuk tabel `permintaan_pembiayaan`
 --
 ALTER TABLE `permintaan_pembiayaan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `perpajakans`
+-- Indeks untuk tabel `perpajakans`
 --
 ALTER TABLE `perpajakans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reports`
+-- Indeks untuk tabel `reports`
 --
 ALTER TABLE `reports`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `spds`
+-- Indeks untuk tabel `spds`
 --
 ALTER TABLE `spds`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `permintaan_pembiayaan`
+-- AUTO_INCREMENT untuk tabel `permintaan_pembiayaan`
 --
 ALTER TABLE `permintaan_pembiayaan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `perpajakans`
+-- AUTO_INCREMENT untuk tabel `perpajakans`
 --
 ALTER TABLE `perpajakans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `reports`
+-- AUTO_INCREMENT untuk tabel `reports`
 --
 ALTER TABLE `reports`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `spds`
+-- AUTO_INCREMENT untuk tabel `spds`
 --
 ALTER TABLE `spds`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
